@@ -1,17 +1,21 @@
-#include "IoRedirection.h"
-#include <iostream>
-#include <string>
+#include "Table.h"
 
 using namespace std;
 
 int main() {
-
-  std::cout << "Take input.\n";
-
-  int age;
-  std::cin >> age;
-
-  std::cout << age << endl;
+  DataTable dataTable;
+  
+  std::string process;
+  int milliseconds;
+  dataTable.addToDataTable(process, milliseconds);
+  dataTable.getDataTable();
+  
+  ProcessTable processTable;
+  processTable.addFirstLineVector(dataTable.returnFirstLineCounterVector());
+  processTable.getFirstLineVector();
+  processTable.addStartTimeVector(dataTable.returnStartTimeCounterVector(dataTable.returnFirstLineCounterVector()));
+  processTable.getStartTimeVector();
+  
   return 0;
 }
 
